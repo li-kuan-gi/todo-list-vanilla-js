@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(90deg, #48B2FE, #F9D3D7);
+}
+
+header {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        color: white;
+        font-size: 3rem;
+    }
+}
+
+form {
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        display: flex;
+        width: fit-content;
+        min-width: 0;
+    }
+
+    input {
+        padding: 0.25rem 0.5rem;
+        border: none;
+        font-size: 1.75rem;
+        margin: 0.1rem;
+
+        &[type=text] {
+            width: min(400px, 80vw);
+        }
+
+        &[type=number] {
+            width: 75px;
+            text-align: center;
+            -moz-appearance: textfield;
+        }
+
+        &[type=button] {
+            cursor: pointer;
+            background-color: #f0ce77;
+            color: white;
+        }
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+}
+
+.sort {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        color: white;
+        background-color: #006eff;
+        cursor: pointer;
+    }
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .todo {
+        width: min(80vw, 600px);
+        margin: 0.5rem 0;
+        animation: scale-up 0.3s forwards;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &.done p {
+            opacity: 0.3;
+            text-decoration: line-through;
+            text-decoration-color: black;
+            text-decoration-thickness: 0.2rem;
+        }
+
+        p {
+            color: black;
+            background-color: #cfdd8e;
+            box-shadow: 0 0 1px 1px rgba(#cfdd8e, 0.8);
+            padding: 0.25rem 0.5rem;
+            font-size: 1.75rem;
+            transition: all 0.5s ease;
+
+            &.todo-title {
+                min-width: 15rem;
+                flex-grow: 1;
+            }
+
+            &.todo-date {
+                width: 6.5rem;
+            }
+        }
+
+        div.icons {
+            display: flex;
+            align-self: stretch;
+
+            i {
+                padding: 0.25rem 0.5rem;
+                font-size: 1.75rem;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+
+                &.fa-check {
+                    color: green;
+                }
+
+                &.fa-trash {
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+@keyframes scale-up {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes scale-down {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+    }
+}
